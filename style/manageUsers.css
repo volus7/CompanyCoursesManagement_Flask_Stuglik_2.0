@@ -1,0 +1,67 @@
+@import url(root.css);
+
+.teamContainer
+{
+    width:80vw;
+
+    height: fit-content;
+    background-color: var(--details);
+    border-radius: 20px;
+    margin-top: 20px;
+    height: fit-content;
+  }
+.teamNav
+ {
+    width:80vw;
+    height: 60px;
+    background-color: var(--details);
+    border: 5px solid var(--white);
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    align-items: center;
+ }
+   .teamContent
+   {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   }
+   .teamUser{
+   border-radius: 20px 20px 0px 0px;
+   padding: 5px;
+   border: 5px solid var(--white);
+   margin: 10px;
+   display: flex;
+   flex-direction: column;
+   }
+    .teamUserNav{
+    display: flex;
+   flex-direction: row;
+   }
+
+ .teamUserIcon{
+    background-image: url(/static/icon/icon_user.png);
+    width:60px;
+    height:60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+ .teamUserP{
+ display: flex;
+ align-items: center;
+ text-align: center;
+ margin-left: 5px;
+ }
+ #dialogueWindow {
+ display: none;
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    left: 100px;
+    bottom: 200px;
+}
+
