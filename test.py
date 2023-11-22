@@ -13,7 +13,7 @@ cursor = connection.cursor()
 # connection.commit()
 # data=cursor.execute('''INSERT INTO users (id, username,role, password, team_id) VALUES (9, 'Jack', 'user','Jack', '2')''')
 # connection.commit()
-
+#
 # data = cursor.execute("CREATE TABLE courses (id INTEGER PRIMARY KEY, name VARCHAR(255), correspondingTeamId INTEGER)")
 # connection.commit()
 
