@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head id="ctl00_Head1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/static/style/kontakt.css">
+    <link rel="stylesheet" href="/static/style/nav.css">
+    <link rel="icon" type="image/x-icon" href="/static/icon/smallNoBg.ico">
+
+    <title>
+        {% if role=='admin' %}
+        Kapsel - Admin
+        {% elif role == 'manager'%}
+        Kapsel - Manager
+        {% else %}
+        Kapsel - Pracownik
+        {% endif %}
+    </title>
+
+</head>
+
+<body class="CacheDetailsPage" >
+    {% include 'navbar.html' %}
+    <div id="content" class="content">
+        <div class="creator">
+            <div class="name_pic">
+                <div class="prof" id="WW"></div>
+                <h2>Wiktor <br> Wolanin</h2>
+            </div>
+            <div class="contact">
+                <b>DANE KONTAKTOWE</b>
+            </div>
+            <ol>
+                <div class="dane">
+                    <li>
+                        <h4>Gmail:</h4>
+                        <p>wik.wolanin@gmail.com</p>
+                    </li>
+                    <li>
+                        <h4>Tel:</h4>
+                        <p>+48 730 370 820</p>
+                    </li>
+                    <li>
+                        <h4>Facebook:</h4>
+                        <a href="https://www.facebook.com/profile.php?id=100009783813052&locale=pl_PL">@Wiktor_Wolanin</a>
+                    </li>
+                    <li>
+                        <h4>Discord:</h4>
+                        <p>vektorvi</p>
+                    </li>
+                </div>
+            </ol>
+        </div>
+        <div class="creator">
+            <div class="name_pic">
+                <div class="prof" id="MZ"></div>
+                <h2>Mateusz <br> Żegleń</h2>
+            </div>
+            <div class="contact">
+                <b>DANE KONTAKTOWE</b>
+            </div>
+            <ol>
+                <div class="dane">
+                    <li>
+                        <h4>Gmail:</h4>
+                        <p></p>
+                    </li>
+                    <li>
+                        <h4>Tel:</h4>
+                        <p>+48 506 609 423</p>
+                    </li>
+                    <li>
+                        <h4>Facebook:</h4>
+                        <a href="https://www.facebook.com/mateusz.zeglen.92?locale=pl_PL">@Mateusz_Żegleń</a>
+                    </li>
+                    <li>
+                        <h4>Discord:</h4>
+                        <p>Żateusz Megleń#1348</p>
+                    </li>
+                </div>
+            </ol>
+        </div>
+
+    </div>
+    <script src="/static/javascript/logoutTimer.js"></script>
+</body>
+
+</html>

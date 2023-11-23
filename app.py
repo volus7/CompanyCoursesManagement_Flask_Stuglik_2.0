@@ -144,6 +144,10 @@ def deleteUser(user_id):
     return redirect("/manageUsers")
 
 
+@app.route('/kontakt')
+def kontakt():
+    return render_template("kontakt.html", username=session["username"], role=session.get("role"))
+
 if __name__ == '__main__':
     app.run(debug=True)
 
