@@ -1,5 +1,17 @@
 @import url(root.css);
 /* ______________ NAVIGATION ______________ */
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color:var(--white);
+}
+
 #nav{
     z-index: 100000;
     position:fixed;
