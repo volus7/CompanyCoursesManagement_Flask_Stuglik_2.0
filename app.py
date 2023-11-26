@@ -123,7 +123,7 @@ def manege_managers():
 
     cursor.execute("SELECT username FROM users WHERE role='manager'")
     managers = cursor.fetchall()
-    return render_template('manageManagers.html', managers=managers)
+    return render_template('manageManagers.html', managers=managers, role=session.get("role"))
 
 #zarządzanie pracownikami teamami itp
 
