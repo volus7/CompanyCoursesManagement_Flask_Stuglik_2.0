@@ -11,12 +11,51 @@ cursor = connection.cursor()
 # connection.commit()
 # data=cursor.execute('''INSERT INTO users (id, username,role, password, team_id) VALUES (8, 'Alex', 'user','Alex', '2')''')
 # connection.commit()
-# data=cursor.execute('''INSERT INTO users (id, username,role, password, team_id) VALUES (9, 'Jack', 'user','Jack', '2')''')
-# connection.commit()
+
 #
 # data = cursor.execute("CREATE TABLE courses (id INTEGER PRIMARY KEY, name VARCHAR(255), correspondingTeamId INTEGER)")
 # connection.commit()
+# data=cursor.execute('''INSERT INTO courses (id, name,correspondingTeamId) VALUES (1, 'CSS', '1')''')
+# connection.commit()
+# data=cursor.execute('''INSERT INTO courses (id, name,correspondingTeamId) VALUES (2, 'JS', '1')''')
+# connection.commit()
 
+# data = cursor.execute("CREATE TABLE courses_chapter (id INTEGER PRIMARY KEY, name VARCHAR(255), correspondingCourseId INTEGER)")
+# connection.commit()
+# data=cursor.execute('''INSERT INTO courses_chapter (id, name,correspondingCourseId) VALUES (1, 'Roz 1 - wstep', '1')''')
+# connection.commit()
+# data=cursor.execute('''INSERT INTO courses_chapter (id, name,correspondingCourseId) VALUES (2, 'Roz 2 - style wew i zew', '1')''')
+# connection.commit()
+
+# data = cursor.execute("CREATE TABLE courses_subsection (id INTEGER PRIMARY KEY, name VARCHAR(255), content VARCHAR(255), correspondingChapterId INTEGER)")
+# connection.commit()
+# data=cursor.execute('''INSERT INTO courses_subsection (id, name,content,correspondingChapterId) VALUES (1, '1.1 - witamy', 'Wtamy w naszym super kursie, nausczysz sie tu css', '1')''')
+# connection.commit()
+# data=cursor.execute('''INSERT INTO courses_subsection (id, name,content,correspondingChapterId) VALUES (2, '1.2 - co to css?','css to takie cos ', '1')''')
+# connection.commit()
+# data=cursor.execute('''INSERT INTO courses_subsection (id, name,content,correspondingChapterId) VALUES (3, '2.1 - co to style wew', 'style wew to te ktore sa  w srodku', '2')''')
+# connection.commit()
+
+
+print('\nColumns in courses_subsection table:')
+data=cursor.execute('''SELECT * FROM courses_subsection''')
+for column in data.description:
+    print(column[0])
+
+print('\nData in courses_subsection table:')
+data=cursor.execute('''SELECT * FROM courses_subsection''')
+for row in data:
+    print(row)
+
+print('\nColumns in courses_chapter table:')
+data=cursor.execute('''SELECT * FROM courses_chapter''')
+for column in data.description:
+    print(column[0])
+
+print('\nData in courses_chapter table:')
+data=cursor.execute('''SELECT * FROM courses_chapter''')
+for row in data:
+    print(row)
 
 print('\nColumns in COURSES table:')
 data=cursor.execute('''SELECT * FROM courses''')

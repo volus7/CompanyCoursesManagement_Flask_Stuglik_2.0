@@ -83,7 +83,12 @@ def manage_courses():
     cursor.execute("SELECT username, teams.id FROM users INNER JOIN teams on users.id=manager_id WHERE role=='manager'")
     managers = cursor.fetchall()
 
-    return render_template('manageCourses.html', courses=courses, managers=managers, role=session.get("role"))
+    cursor.execute("SELECT id, name, correspondingCourseId FROM courses_chapter")
+    courses_chapter = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM courses_subsection")
+    courses_subsection = cursor.fetchall()
+    return render_template('manageCourses.html', courses_subsection=courses_subsection,courses_chapter=courses_chapter,courses=courses, managers=managers, role=session.get("role"))
 
 
 @app.route('/manageUsers')

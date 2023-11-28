@@ -51,8 +51,19 @@
 
             <div class="teamContent">
                 Treść kursu
-                Kursy:
-                {{courses}}
+                {% for n in courses_chapter %}
+                {% if i[0] == n[2] %}
+                 <div>
+                    {{n[1]}}
+                    {% for m in courses_subsection %}
+                        {% if m[3] == n[0] %}
+                            <div>{{m[1]}}</div><div>{{m[2]}}</div>
+                        {% endif %}
+                    {% endfor %}
+                     </div>
+                {% endif %}
+                {% endfor %}
+
             </div>
         </div>
 
