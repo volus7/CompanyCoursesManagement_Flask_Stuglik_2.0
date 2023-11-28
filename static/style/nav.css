@@ -65,3 +65,17 @@ nav > ul{
     width: 25px;
     height: 25px;
 }
+
+#mySearch{
+    background-color: var(--bg);
+    font-family: Helvetica, sans-serif ;
+    border: none;
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+#mySearch:focus{
+    border: none;
+    outline: none;
+}
