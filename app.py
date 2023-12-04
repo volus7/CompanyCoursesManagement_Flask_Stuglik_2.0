@@ -53,7 +53,7 @@ def login():
 
 @app.route('/logout')
 def logout():
-    session.pop("username", None)
+    session.clear()
     return render_template("logout.html")
 
 @app.route('/')
