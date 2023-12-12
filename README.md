@@ -1,7 +1,8 @@
 # CompanyCoursesManagement_Flask_Stuglik_2.0
 
 
-to run -> python3 app.py while in main folder
+to run -> python3 app.py 
+while in main folder
 
 then -> http://127.0.0.1:5000/
 
