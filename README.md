@@ -1,7 +1,5 @@
 # CompanyCoursesManagement_Flask_Stuglik_2.0
 
-<h1> Changed Repository caused by inactive owner </h1>
-
 
 to run -> python3 app.py while in main folder
 
@@ -12,3 +10,5 @@ in case of acces denied for mac user:
 chrome://net-internals/#sockets
 
 flush socets and pools
+
+## Changed Repository caused by inactive owner
