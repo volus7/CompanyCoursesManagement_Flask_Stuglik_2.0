@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="/static/style/style.css">
     <link rel="stylesheet" href="/static/style/nav.css">
+    <link rel="stylesheet" href="/static/style/coursesMain.css">
     <link rel="icon" type="image/x-icon" href="/static/icon/smallNoBg.ico">
 
     <title>
@@ -28,6 +29,11 @@
             {% include 'contents/adminOrManagerMain.html' %}
         
         {%else%}
+        <div id="container">
+            <p>mom</p>
+            <p>dad</p>
+            <p>pops</p>
+        </div>
         <ul id="myMenu">
             <li><a href="#">HTML</a></li>
             <li><a href="#">CSS</a></li>
@@ -39,6 +45,7 @@
             <li><a href="#">Bootstrap</a></li>
             <li><a href="#">Node.js</a></li>
           </ul>
+
         {% endif %}
 
 
