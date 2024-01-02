@@ -13,7 +13,7 @@ app.config['SESSION_PERMANENT'] = True
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=20)
 
 Session(app)
-
+ 
 connection = sqlite3.connect("data/users.sqlite", check_same_thread=False)
 cursor = connection.cursor()
 

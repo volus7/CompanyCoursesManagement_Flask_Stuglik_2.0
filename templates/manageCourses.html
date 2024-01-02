@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/style/nav.css">
     <link rel="stylesheet" href="/static/style/manageUsers.css">
     <link rel="icon" type="image/x-icon" href="/static/icon/small.ico">
-
+    <link rel="stylesheet" href="/static/style/manageCourses.css">
     <title>
         {% if role=='admin' %}
         Kapsel - Admin
@@ -26,7 +26,7 @@
     {% include 'navbar.html' %}
 
 
-    <div class="content">
+    <div class="courseContent">
          <br>
         <br>
         <br>
@@ -35,26 +35,30 @@
 
 
         {% for i in courses %}
-        <div class="teamContainer">
+        <div class="courseContainer">
                 {% for j in managers %}
                 {% if i[2] == j[1] %}
-                <div class="teamNav">
-                    <p>COURSE NAME: {{ i[1] }}</p>
-                  <p>Manager NAME: {{ j[0] }}</p>
+                <div class="courseNav">
+                    <div>
+                        <p>COURSE NAME: {{ i[1] }}</p>
+                        <p>Manager NAME: {{ j[0] }}</p>
+                    </div>
 
-                    <a href="" id="changeTeamLeader"><button>X</button></a>
-                    <a href="" id="changeContent"><button>X</button></a>
+                    <div>
+                        <a href="" id="changeTeamLeader"><button class="button-17">CHANGE LEADER</button></a>
+                        <a href="" id="changeContent"><button class="button-17">EDIT COURSE</button></a>
+                    </div>
 
                 </div>
             {% endif %}
             {% endfor %}
 
-            <div class="teamContent">
-                Treść kursu
+            <div class="courseContent2">
+
                 {% for n in courses_chapter %}
                 {% if i[0] == n[2] %}
                  <div>
-                    {{n[1]}}
+                    <h1>{{n[1]}}</h1>
                     {% for m in courses_subsection %}
                         {% if m[3] == n[0] %}
                             <div>{{m[1]}}</div><div>{{m[2]}}</div>
