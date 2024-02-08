@@ -144,7 +144,7 @@ def deleteTeam(team_id):
 @app.route('/deleteUser/<string:user_id>', methods=['GET'])
 def deleteUser(user_id):
 
-    sql = "DELETE FROM users WHERE id = :user_id"
+    sql = "UPDATE users SET team_id= -1 WHERE id = :user_id"
     cursor.execute(sql, {"user_id": user_id})
     connection.commit()
     return redirect("/manageUsers")
