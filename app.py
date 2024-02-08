@@ -54,6 +54,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
+    session["correct"] = "noCorrect"
     return render_template("logout.html")
 
 @app.route('/')
