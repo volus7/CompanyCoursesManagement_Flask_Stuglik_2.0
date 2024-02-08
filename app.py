@@ -133,10 +133,14 @@ def manege_managers():
 
 #zarządzanie pracownikami teamami itp
 
-@app.route('/deleteTeam/<string:team_id>', methods=['GET'])
-def deleteTeam(team_id):
+@app.route('/deleteTeam', methods=['DELETE'])
+def deleteTeam():
 
-    sql = "DELETE FROM teams WHERE id = :team_id"
+    data = request.get_json()
+    team_id = data.get('teamName')
+    
+    
+    sql = f"DELETE FROM teams WHERE id = {team_id}"
     cursor.execute(sql, {"team_id": team_id})
     connection.commit()
     return redirect("/manageUsers")
