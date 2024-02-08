@@ -34,7 +34,7 @@
     background-color: var(--dark);
 }
 
-#addManager > p{
+#addManager > .plas{
     transform: translateY(-2px);
 
 }
