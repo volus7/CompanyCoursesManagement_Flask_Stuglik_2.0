@@ -14,6 +14,23 @@
                 <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search..." title="Type in a category">
                 <script>
                     function myFunction() {
+                      let input, filter, container, div, p, i;
+                      input = document.getElementById("mySearch");
+                      filter = input.value.toUpperCase();
+                      container = document.getElementById("container");
+                      div = container.getElementsByTagName("div");
+                      console.log(container, div);
+                      for (i = 0; i < div.length; i++) {
+                        p = div[i].getElementsByTagName("p")[0];
+                        if (p.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                          div[i].style.display = "";
+                        } else {
+                          div[i].style.display = "none";
+                        }
+                      }
+                    }
+
+                    /* function myFunction() {
                       var input, filter, ul, li, a, i;
                       input = document.getElementById("mySearch");
                       filter = input.value.toUpperCase();
@@ -27,7 +44,7 @@
                           li[i].style.display = "none";
                         }
                       }
-                    }
+                    } */
                 </script>
             </li>
             <li class="navBtn"><a href="">Lista Kursów</a></li>
