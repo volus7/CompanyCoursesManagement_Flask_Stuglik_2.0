@@ -1,14 +1,14 @@
 <div id="nav">
     <nav>
         <ul>
-            <li><a href="/" id="logo"><div id="logoDiv"></div></a></li>
+            <li class="btn"><a href="/" id="logo"><div id="logoDiv"></div></a></li>
             {% if role=='admin' %}
-            <li class="navBtn"><a href="manageManagers">Zarządzaj Menagerami</a></li>
-            <li class="navBtn"><a href="manageUsers">Zarządzaj Pracownikami</a></li>
-            <li class="navBtn"><a href="manageCourses">Edytuj Kursy</a></li>
+            <li class="navBtn btn"><a href="manageManagers">Zarządzaj Menagerami</a></li>
+            <li class="navBtn btn"><a href="manageUsers">Zarządzaj Pracownikami</a></li>
+            <li class="navBtn btn"><a href="manageCourses">Edytuj Kursy</a></li>
             {% elif role == 'manager'%}
-            <li class="navBtn"><a href="">Zarządzaj Pracownikami</a></li>
-            <li class="navBtn"><a href="">Informacje</a></li>
+            <li class="navBtn btn"><a href="">Zarządzaj Pracownikami</a></li>
+            <li class="navBtn btn"><a href="">Informacje</a></li>
             {% else %}
             <li class="navBtn">
                 <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search..." title="Type in a category">
@@ -29,29 +29,13 @@
                         }
                       }
                     }
-
-                    /* function myFunction() {
-                      var input, filter, ul, li, a, i;
-                      input = document.getElementById("mySearch");
-                      filter = input.value.toUpperCase();
-                      ul = document.getElementById("myMenu");
-                      li = ul.getElementsByTagName("li");
-                      for (i = 0; i < li.length; i++) {
-                        a = li[i].getElementsByTagName("a")[0];
-                        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                          li[i].style.display = "";
-                        } else {
-                          li[i].style.display = "none";
-                        }
-                      }
-                    } */
                 </script>
             </li>
-            <li class="navBtn"><a href="">Lista Kursów</a></li>
-            <li class="navBtn"><a href="">Informacje</a></li>
+            <li class="navBtn btn"><a href="">Lista Kursów</a></li>
+            <li class="navBtn btn"><a href="">Informacje</a></li>
             {% endif %}
-            <li class="navBtn"><a href="kontakt">Kontakt</a></li>
-            <li id="logoutLi">
+            <li class="navBtn btn"><a href="kontakt">Kontakt</a></li>
+            <li id="logoutLi" class="btn">
                 <div class="horizontal">
                     <div id="logoutIcon"></div>
                     <div class="vertical">

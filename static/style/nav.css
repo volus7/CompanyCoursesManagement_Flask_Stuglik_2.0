@@ -79,3 +79,28 @@ nav > ul{
     border: none;
     outline: none;
 }
+li, li > a{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+ }
+ .btn{
+    transition-duration: .3s;
+ }
+
+.btn:hover{
+    transition-duration: .3s;
+    background-color: var(--bg);
+    /* border: 1px solid black; */
+}
+
+.btn:active{
+    transition-duration: .3s;
+    background-color: var(--dark);
+}
+
+li > a{
+    padding: 0px 10px;
+
+}
