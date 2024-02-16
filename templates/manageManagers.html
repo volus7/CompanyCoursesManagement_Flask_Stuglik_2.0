@@ -19,15 +19,130 @@
         Kapsel - Pracownik
         {% endif %}
     </title>
-
+    <style>
+        #formAdd {
+        display: none;
+        }
+    </style>
 </head>
 
 <body class="CacheDetailsPage" >
     {% include 'navbar.html' %}
     <div id="container" class="container">
-        <button id="addManager"><p class="plas">+</p></button>
+        <button id="addManager" onclick="addManager()"><p class="plas">+</p></button>
+<div class="managersList" >
+    <div id="list">
+                {% for j in managers %}
+                    <div class="teamManager">
+                        <div class="teamManagerNav">
+                        <div class="teamManagerIcon"></div>
+                            <div class="teamManagerP"><p class="teamManagerP">{{j[0]}}</p></div>
+                            </div>
+                    <button>DELETE</button>
+                        <a href="" id="changeManagerName"><button>CHANGE Name</button></a>
+                    </div>
+                {% endfor %}
+        </div>
+    <div id="formAdd" class="form-container">
+        <form method="post">
+            <div id="closeButton" onclick="closeForm()"><p>X</p></div>
+            <div class="formCon">
+            <div class="column1">
+                <label for="manager_name" class="form-label">Nazwa menedżera:</label>
+                <input type="text" id="manager_name" name="manager_name" class="form-input" required>
 
+                <label for="team_name" class="form-label">Nazwa zespołu:</label>
+                <input type="text" id="team_name" name="team_name" class="form-input" required>
+
+                <label for="manager_password" class="form-label">Hasło menedżera:</label>
+                <input type="text" id="manager_password" name="manager_password" class="form-input" required>
+                <label for="manager_password2" class="form-label">Powtórz hasło</label>
+                <input type="text" id="manager_password2" name="manager_password2" class="form-input" required>
+
+            </div>
+            <div class="column2">
+            <label for="file_input" class="form-label">Ikonka:</label>
+            <p>Przeciągnij zdjęcie tutaj</p>
+                <div id="dropZone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+
+                    <input type="file" id="file_input" style="display: none;" accept="image/*">
+                </div>
+                <div id="image_preview"></div></div>
+            </div>
+
+                <input type="submit" value="Submit" class="form-submit">
+
+
+
+            </form>
     </div>
+    </div>
+    </div>
+    <script defer>
+        function closeForm()
+        {
+        document.getElementById("formAdd").style.display = "none"
+        document.getElementById("list").style.display = "flex"
+        document.getElementById("addManager").style.display = "block"
+        }
+        function addManager()
+        {
+        document.getElementById("formAdd").style.display = "flex"
+        document.getElementById("list").style.display = "none"
+        document.getElementById("addManager").style.display = "none"
+
+        console.log("aa");
+        }
+        function dragOverHandler(event) {
+            event.preventDefault();
+        }
+
+        function dropHandler(event) {
+            event.preventDefault();
+
+            if (event.dataTransfer.items) {
+                for (var i = 0; i < event.dataTransfer.items.length; i++) {
+                    if (event.dataTransfer.items[i].kind === 'file') {
+                        var file = event.dataTransfer.items[i].getAsFile();
+                        displayImage(file);
+                    }
+                }
+            } else {
+                for (var i = 0; i < event.dataTransfer.files.length; i++) {
+                    var file = event.dataTransfer.files[i];
+                    displayImage(file);
+                }
+            }
+        }
+
+        function displayImage(file) {
+            if (file.type.match('image.*')) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var img = new Image();
+                    img.src = event.target.result;
+                    img.onload = function() {
+                        var imagePreview = document.getElementById('image_preview');
+                        imagePreview.innerHTML = '';
+                        imagePreview.appendChild(img);
+                    }
+                }
+                reader.readAsDataURL(file);
+            } else {
+                alert('Wybrany plik nie jest obrazem.');
+            }
+        }
+
+        document.getElementById('dropZone').addEventListener('click', function() {
+            document.getElementById('file_input').click();
+        });
+
+        document.getElementById('file_input').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            displayImage(file);
+        });
+    </script>
+
     <script src="/static/javascript/logoutTimer.js"></script>
     <script src="/static/javascript/lightToggleSwitch.js"></script>
 </body>

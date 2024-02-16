@@ -1,40 +1,180 @@
 @import url(root.css);
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.container{
+.container {
     padding-top: 60px;
     width: 100vw;
     height: 100vh;
     transition-duration: .3s;
 }
 
-#addManager{
+#addManager {
     margin-left: 10px;
     width: 25px;
     height: 25px;
     font-weight: bold;
     font-size: 25px;
     background-color: var(--secbg);
-    color:#ccc;
-    border:none;
+    color: #ccc;
+    border: none;
     transition-duration: .3s;
 
 }
-#addManager:hover{
+
+#addManager:hover {
     transition-duration: .3s;
     background-color: var(--bg);
 }
-#addManager:active{
+
+#addManager:active {
     transition-duration: .3s;
     background-color: var(--dark);
 }
 
-#addManager > .plas{
+#addManager>.plas {
     transform: translateY(-2px);
 
+}
+
+
+.managerList {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.teamManager {
+    border-radius: 20px 20px 0px 0px;
+    padding: 5px;
+    border: 5px solid var(--white);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.teamManagerNav {
+    display: flex;
+    flex-direction: row;
+}
+
+.teamManagerIcon {
+    background-image: url(/static/icon/icon_user.png);
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.teamManagerP {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.formCon {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+
+}
+
+.form-title {
+    text-align: center;
+    color: #663399;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #663399;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #663399;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    background-color: #5a2d8f;
+}
+
+#dropZone {
+    width: 200px;
+    height: 60px;
+    border: 2px dashed #ccc;
+    margin: 20px auto;
+    text-align: center;
+    line-height: 300px;
+    font-size: 20px;
+    color: #666;
+    border-radius: 10px;
+}
+
+#image_preview {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+#image_preview img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+#closeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+#closeButton:hover {
+    background-color: darkred;
 }

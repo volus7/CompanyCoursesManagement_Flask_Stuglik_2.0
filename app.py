@@ -78,6 +78,7 @@ def manage_courses():
     if session.get("role") != 'admin':
         abort(403)
 
+
     cursor.execute("SELECT id, name, correspondingTeamId FROM courses")
     courses = cursor.fetchall()
 
@@ -119,13 +120,28 @@ def manage_users():
     return render_template('manageUsers.html', users=users, teams=teams, managers=managers, role=session.get("role"))
 
 
-@app.route('/manageManagers')
+@app.route('/manageManagers', methods=['GET', 'POST'])
 def manege_managers():
     session["localization"] = "manege_managers"
     if not session.get("username"):
         return redirect("/login")
     if session.get("username") != 'admin':
         abort(403)
+
+    if request.method == 'POST':
+
+        manager_name = request.form['manager_name']
+        team_name = request.form['team_name']
+        manager_password = request.form['manager_password']
+
+        sql = "INSERT INTO users (username, role, password, team_id) VALUES (:manager_name, 'manager', :manager_password, 0)"
+        cursor.execute(sql, {"manager_name": manager_name, "manager_password": manager_password})
+        connection.commit()
+
+        cursor.execute("SELECT username FROM users WHERE role='manager'")
+        managers = cursor.fetchall()
+        return render_template('manageManagers.html', managers=managers, role=session.get("role"))
+
 
     cursor.execute("SELECT username FROM users WHERE role='manager'")
     managers = cursor.fetchall()

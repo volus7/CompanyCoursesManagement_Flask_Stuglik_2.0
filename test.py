@@ -6,16 +6,20 @@ cursor = connection.cursor()
 # result = cursor.fetchone()
     
 # data=cursor.execute('''INSERT INTO teams (id, name, manager_id) VALUES (1, 'Team Super', '2')''')
-# connection.commit()    
-    
+# connection.commit()
+#
 # data=cursor.execute('''INSERT INTO teams (id, name, manager_id) VALUES (2, 'Team F', '3')''')
 # connection.commit()
 # data=cursor.execute('''INSERT INTO users (id, username,role, password, team_id) VALUES (7, 'John', 'user','John', '2')''')
 # connection.commit()
-# data=cursor.execute('''INSERT INTO users (id, username,role, password, team_id) VALUES (8, 'Alex', 'user','Alex', '2')''')
-# connection.commit()
 
-#
+
+
+# data=cursor.execute('''INSERT INTO users (username,role, password, team_id) VALUES ( 'man33', 'manager','man1', '0')''')
+# connection.commit()
+# data=cursor.execute('''DELETE FROM users where username = 'man33' ''')
+# connection.commit()
+# #
 # data = cursor.execute("CREATE TABLE courses (id INTEGER PRIMARY KEY, name VARCHAR(255), correspondingTeamId INTEGER)")
 # connection.commit()
 # data=cursor.execute('''INSERT INTO courses (id, name,correspondingTeamId) VALUES (1, 'CSS', '1')''')
