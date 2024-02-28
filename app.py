@@ -138,13 +138,24 @@ def manege_managers():
         cursor.execute(sql, {"manager_name": manager_name, "manager_password": manager_password})
         connection.commit()
 
-        cursor.execute("SELECT username FROM users WHERE role='manager'")
+        cursor.execute("SELECT users.username, teams.name FROM USERS, TEAMS WHERE users.role='manager' and users.id = teams.manager_id")
+
         managers = cursor.fetchall()
+
+
+
         return render_template('manageManagers.html', managers=managers, role=session.get("role"))
 
 
-    cursor.execute("SELECT username FROM users WHERE role='manager'")
+
+
+
+
+    cursor.execute("SELECT users.username, teams.name FROM USERS, TEAMS WHERE users.role='manager' and users.id = teams.manager_id")
+
     managers = cursor.fetchall()
+
+
     return render_template('manageManagers.html', managers=managers, role=session.get("role"))
 
 #zarządzanie pracownikami teamami itp

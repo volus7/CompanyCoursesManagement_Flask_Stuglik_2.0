@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/style/style.css">
     <link rel="stylesheet" href="/static/style/manageManagers.css">
     <link rel="stylesheet" href="/static/style/nav.css">
+    <link rel="stylesheet" href="/static/style/kontakt.css">
     <link rel="icon" type="image/x-icon" href="/static/icon/smallNoBg.ico">
 
     <title>
@@ -33,14 +34,41 @@
 <div class="managersList" >
     <div id="list">
                 {% for j in managers %}
-                    <div class="teamManager">
-                        <div class="teamManagerNav">
-                        <div class="teamManagerIcon"></div>
-                            <div class="teamManagerP"><p class="teamManagerP">{{j[0]}}</p></div>
-                            </div>
-                    <button>DELETE</button>
-                        <a href="" id="changeManagerName"><button>CHANGE Name</button></a>
-                    </div>
+
+        <div class="creator">
+            <div class="name_pic">
+                <div class="teamManagerIcon"></div>
+                <h2>{{j[0]}}</h2>
+            </div>
+            <div class="contact">
+                <b>DANE KONTAKTOWE</b>
+            </div>
+            <ol>
+                <div class="dane">
+                    <li>
+                        <h4>Gmail:</h4>
+                        <p>{{j[0]}}@gmail.com</p>
+                    </li>
+                    <li>
+                        <h4>Tel:</h4>
+                        <p>+48 730 370 820</p>
+                    </li>
+
+                </div>
+                <br>
+                <div class="dane">
+                    <li>
+                        <h4>Team name:</h4>
+                        <p>{{j[1]}}</p>
+                    </li>
+                    <li>
+                        <h4>Number of members:</h4>
+                        <p>...</p>
+                    </li>
+                </div>
+            </ol>
+        </div>
+
                 {% endfor %}
         </div>
     <div id="formAdd" class="form-container">
