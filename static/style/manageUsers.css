@@ -3,9 +3,9 @@
 .teamContainer
 {
     width:80vw;
-
+    color: black;
     height: fit-content;
-    background-color: var(--details);
+    background-color: var(--bg);
     border-radius: 20px;
     margin-top: 20px;
     height: fit-content;
@@ -64,4 +64,5 @@
     left: 100px;
     bottom: 200px;
 }
+
 

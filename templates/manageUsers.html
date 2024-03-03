@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="/static/style/style.css">
     <link rel="stylesheet" href="/static/style/nav.css">
     <link rel="stylesheet" href="/static/style/manageUsers.css">
+
     <link rel="icon" type="image/x-icon" href="/static/icon/small.ico">
 
     <title>
         {% if role=='admin' %}
         Kapsel - Admin
         {% elif role == 'manager'%}
-        Kapsel - Manager
+        Kapsel - Managers
         {% else %}
         Kapsel - Pracownik
         {% endif %}
@@ -53,6 +54,7 @@
                         <a href="" id="changeUserName"><button>CHANGE Name</button></a>
                         <a href="" id="changeUserTeam"><button>change Team</button></a>
                     </div>
+                
                     {% endif %}
 
 
