@@ -42,8 +42,12 @@ cursor = connection.cursor()
 # connection.commit()
 # data=cursor.execute('''INSERT INTO courses_subsection (id, name,content,correspondingChapterId) VALUES (3, '2.1 - co to style wew', 'style wew to te ktore sa  w srodku', '2')''')
 # connection.commit()
-
-
+# data=cursor.execute('''UPDATE courses_subsection SET name = 'Model pudełkowy CSS:', content= 'Model pudełkowy CSS opisuje układ i renderowanie elementów na stronie internetowej.' where id=3 ''')
+# connection.commit()
+data=cursor.execute('''UPDATE courses_chapter SET name = 'Rozdział 1: Wprowadzenie do CSS:'  where id=1 ''')
+connection.commit()
+data=cursor.execute('''UPDATE courses_chapter SET name = 'Rozdział 2: Właściwości CSS:'  where id=2 ''')
+connection.commit()
 print('\nColumns in courses_subsection table:')
 data=cursor.execute('''SELECT * FROM courses_subsection''')
 for column in data.description:

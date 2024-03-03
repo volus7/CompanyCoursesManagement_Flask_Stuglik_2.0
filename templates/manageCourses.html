@@ -132,6 +132,20 @@
         .courseContent2 div {
             margin-bottom: 10px;
         }
+           .editButton {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 16px;
+    }
+
+    .editButton:hover {
+        background-color: #45a049;
+    }
     </style>
 </head>
 
@@ -159,7 +173,8 @@
 
                     <div>
                         <a href="" id="changeTeamLeader"><button class="button-17">CHANGE LEADER</button></a>
-                        <a href="" id="changeContent"><button class="button-17">EDIT COURSE</button></a>
+                        <a  id="changeContent"><button class="button-17" onclick="toggleEdit()">EDIT COURSE</button></a>
+
                     </div>
 
                 </div>
@@ -174,7 +189,7 @@
                     <h1>{{n[1]}}</h1>
                     {% for m in courses_subsection %}
                         {% if m[3] == n[0] %}
-                            <div>{{m[1]}}</div><div>{{m[2]}}</div>
+                            <h2>•{{m[1]}}</h2><p>{{m[2]}}</p>
                         {% endif %}
                     {% endfor %}
                      </div>
@@ -182,6 +197,7 @@
                 {% endfor %}
 
             </div>
+
         </div>
 
         {% endfor %}
@@ -190,6 +206,40 @@
 
 
     </div>
+
+
+
+
+        <script>
+        function toggleEdit() {
+            var headers = document.querySelectorAll('.courseContent2 h2');
+            var paragraphs = document.querySelectorAll('.courseContent2 p');
+
+            headers.forEach(function(header) {
+                if (header.firstChild && header.firstChild.nodeName === 'TEXTAREA') {
+                    header.innerHTML = header.firstChild.value;
+                } else {
+                    var textarea = document.createElement('textarea');
+                    textarea.value = header.textContent.trim();
+                    textarea.style.width = '100%'; // Ustawienie pełnej szerokości textarea
+                    header.textContent = '';
+                    header.appendChild(textarea);
+                }
+            });
+
+            paragraphs.forEach(function(paragraph) {
+                if (paragraph.firstChild && paragraph.firstChild.nodeName === 'TEXTAREA') {
+                    paragraph.innerHTML = paragraph.firstChild.value;
+                } else {
+                    var textarea = document.createElement('textarea');
+                    textarea.value = paragraph.textContent.trim();
+                    textarea.style.width = '100%'; // Ustawienie pełnej szerokości textarea
+                    paragraph.textContent = '';
+                    paragraph.appendChild(textarea);
+                }
+            });
+        }
+        </script>
     <script src="/static/javascript/logoutTimer.js"></script>
     <script>
         function preventBack(){window.history.forward();}
