@@ -66,9 +66,12 @@ def index():
     if session.get("role") == 'manager':
         cursor.execute("SELECT role, name FROM users INNER JOIN teams on team_id=teams.id WHERE username=?",
                        [session["username"]])
+        
+    cursor.execute("SELECT id, name, correspondingTeamId FROM courses")
+    courses = cursor.fetchall()
 
     return render_template('index.html', username=session["username"], role=session.get("role"),
-                           team_name=session.get("team_name"))
+                           team_name=session.get("team_name"), courses=courses)
 
 @app.route('/manageCourses')
 def manage_courses():
