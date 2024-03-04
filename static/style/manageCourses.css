@@ -24,6 +24,33 @@ flex-direction: column;
 
 
 
+  #addCourse {
+    margin-top: 70px;
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: var(--secbg);
+    color: #ccc;
+    border: none;
+    transition-duration: .3s;
+}
+
+#addCourse:hover {
+    transition-duration: .3s;
+    background-color: var(--bg);
+}
+
+#addCourse:active {
+    transition-duration: .3s;
+    background-color: var(--dark);
+}
+
+#addCourse>.plas {
+    transform: translateY(-2px);
+
+}
 
 .button-17 {
   align-items: center;

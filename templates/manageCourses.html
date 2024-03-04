@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="/static/style/style.css">
     <link rel="stylesheet" href="/static/style/nav.css">
-    <link rel="stylesheet" href="/static/style/manageUsers.css">
-    <link rel="icon" type="image/x-icon" href="/static/icon/small.ico">
+    <link rel="stylesheet" href="/static/style/userMain.css">
     <link rel="stylesheet" href="/static/style/manageCourses.css">
+    <link rel="icon" type="image/x-icon" href="/static/icon/small.ico">
     <title>
         {% if role=='admin' %}
         Kapsel - Admin
@@ -152,12 +152,11 @@
 <body class="CacheDetailsPage">
     {% include 'navbar.html' %}
 
+    <button id="addCourse" onclick="addCourse()"><p class="plas">+</p></button>
+
 
     <div class="courseContent">
-         <br>
-        <br>
-        <br>
-        <br>
+
 
 
 
@@ -206,10 +205,6 @@
 
 
     </div>
-
-
-
-
         <script>
         function toggleEdit() {
             var headers = document.querySelectorAll('.courseContent2 h2');
