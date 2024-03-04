@@ -15,7 +15,7 @@
     width:80vw;
     height: 60px;
     background-color: var(--details);
-    border: 5px solid var(--white);
+    border: 5px solid var(--bg);
     border-radius: 20px 20px 0px 0px;
     display: flex;
     align-items: center;

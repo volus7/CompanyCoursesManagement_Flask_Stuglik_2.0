@@ -35,6 +35,11 @@ h1{
     /* background-color: var(--bg); */
     transition-duration: .3s;
 }
+
+#container{
+    color: white !important;
+}
+
 #bgs{
     margin-top: 10px;
     width: 70vw;

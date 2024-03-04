@@ -27,7 +27,8 @@
     <div id="content" class="content">
         {% if role == 'admin' or role == 'manager' %}
             {% include 'contents/adminOrManagerMain.html' %}
-        
+            <script src="/static/javascript/lightToggleSwitch.js"></script>
+
         {%else%}
         <div id="container">
             <div><p>HTML</p></div>
@@ -55,7 +56,6 @@
 
     </div>
     <script src="/static/javascript/logoutTimer.js"></script>
-    <script src="/static/javascript/lightToggleSwitch.js"></script>
 </body>
 
 </html>

@@ -151,8 +151,9 @@ def manege_managers():
 
 
 
-    cursor.execute("SELECT users.username, teams.name FROM USERS, TEAMS WHERE users.role='manager' and users.id = teams.manager_id")
-
+    # cursor.execute("SELECT users.username, teams.name FROM USERS, TEAMS WHERE users.role='manager' and users.id = teams.manager_id")
+    cursor.execute("SELECT users.username FROM USERS WHERE users.role='manager'")
+    
     managers = cursor.fetchall()
 
 
