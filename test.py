@@ -5,8 +5,8 @@ cursor = connection.cursor()
 # cursor.execute("SELECT * FROM teams")
 # result = cursor.fetchone()
     
-# data=cursor.execute('''INSERT INTO teams (id, name, manager_id) VALUES (1, 'Team Super', '2')''')
-# connection.commit()
+data=cursor.execute('''INSERT INTO teams (id, name, manager_id) VALUES (3, 'Team leni', '3')''')
+connection.commit()
 #
 # data=cursor.execute('''INSERT INTO teams (id, name, manager_id) VALUES (2, 'Team F', '3')''')
 # connection.commit()
