@@ -137,15 +137,19 @@ def manege_managers():
         team_name = request.form['team_name']
         manager_password = request.form['manager_password']
 
-        sql = "INSERT INTO users (username, role, password, team_id) VALUES (:manager_name, 'manager', :manager_password, 0)"
-        cursor.execute(sql, {"manager_name": manager_name, "manager_password": manager_password})
+        sql = "INSERT INTO users (username, role, password, team_id) VALUES (?, 'manager', ?, 0)"
+        cursor.execute(sql, (manager_name, manager_password))
+
+        # Pobierz ostatnio wstawione ID użytkownika
+        manager_id = cursor.lastrowid
+
+        sql = "INSERT INTO teams (name, manager_id) VALUES (?, ?)"
+        cursor.execute(sql, (team_name, manager_id))
+
         connection.commit()
 
         cursor.execute("SELECT users.username, teams.name FROM USERS, TEAMS WHERE users.role='manager' and users.id = teams.manager_id")
-
         managers = cursor.fetchall()
-
-
 
         return render_template('manageManagers.html', managers=managers, role=session.get("role"))
 
@@ -154,8 +158,9 @@ def manege_managers():
 
 
 
-    # cursor.execute("SELECT users.username, teams.name FROM USERS, TEAMS WHERE users.role='manager' and users.id = teams.manager_id")
-    cursor.execute("SELECT users.username FROM USERS WHERE users.role='manager'")
+
+    cursor.execute("SELECT users.username, teams.name FROM USERS, TEAMS WHERE users.role='manager' and users.id = teams.manager_id")
+
     
     managers = cursor.fetchall()
 

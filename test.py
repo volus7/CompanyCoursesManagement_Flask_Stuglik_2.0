@@ -17,8 +17,8 @@ cursor = connection.cursor()
 
 # data=cursor.execute('''INSERT INTO users (username,role, password, team_id) VALUES ( 'man33', 'manager','man1', '0')''')
 # connection.commit()
-# data=cursor.execute('''DELETE FROM users where username = 'aaa' ''')
-# connection.commit()
+data=cursor.execute('''DELETE FROM users where username = 'aa' or username = 'Pan Chilary' ''')
+connection.commit()
 # #
 # data = cursor.execute("CREATE TABLE courses (id INTEGER PRIMARY KEY, name VARCHAR(255), correspondingTeamId INTEGER)")
 # connection.commit()
