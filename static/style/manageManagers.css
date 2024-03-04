@@ -37,6 +37,7 @@
 }
 
 #addManager>.plas {
+    width: 100%;
     transform: translateY(-2px);
 
 }

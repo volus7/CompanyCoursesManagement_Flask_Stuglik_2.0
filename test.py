@@ -10,8 +10,8 @@ cursor = connection.cursor()
 #
 # data=cursor.execute('''INSERT INTO teams (id, name, manager_id) VALUES (2, 'Team F', '3')''')
 # connection.commit()
-# data=cursor.execute('''INSERT INTO users (id, username,role, password, team_id) VALUES (7, 'John', 'user','John', '2')''')
-# connection.commit()
+data=cursor.execute('''INSERT INTO users ( username,role, password, team_id) VALUES ('Joe', 'user','John', '3')''')
+connection.commit()
 
 
 

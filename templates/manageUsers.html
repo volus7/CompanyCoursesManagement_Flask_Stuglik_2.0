@@ -26,18 +26,18 @@
 <body class="CacheDetailsPage">
     {% include 'navbar.html' %}
     <div id="content">
+<!--        onclick="addUser()"-->
+
         {% for i in teams %}
         <div class="teamContainer">
             {% for j in managers %}
             {% if i[1] == j[1] %}
                 <div class="teamNav">
+                    <button id="addUser" ><p class="plas">+</p></button>
+                    <button id="deleteTeam" onclick="dump({{j[1]}})"><p class="plas">x</p></button>
                     <p>TEAM NAME: {{ i[0] }}</p>
                     <p>TEAM LEADER: {{ j[0] }}</p>
-                    <a href="" id="changeTeamLeader"><button onclick="changeTeamName()">L</button></a>
-                    <a href="" id="changeTeamName"><button onclick="changeTeamName()">N</button></a>
-                    <a href="" id="addToTeam"><button onclick="changeTeamName()">A</button></a>
 
-                    <a href="" id="deleteTeam"><button onclick="dump({{j[1]}})">X</button></a>
                 </div>
                 {% endif %}
             {% endfor %}
@@ -50,9 +50,12 @@
                         <div class="teamUserIcon"></div>
                             <div class="teamUserP"><p class="teamUserP">{{j[0]}}</p></div>
                             </div>
-                    <a href="{{ url_for('deleteUser', user_id=j[2]) }}" id="deleteUser"><button>DELETE</button></a>
-                        <a href="" id="changeUserName"><button>CHANGE Name</button></a>
-                        <a href="" id="changeUserTeam"><button>change Team</button></a>
+
+                        <p id="changeName" class="plas">CHANGE NAME</p>
+                        <br>
+                       <button id="deleteUser" ><a href="{{ url_for('deleteUser', user_id=j[2]) }}"><p class="plas">x</p></a></button>
+
+                        <!--                        <a href="" id="changeUserTeam"><button>change Team</button></a>-->
                     </div>
                 
                     {% endif %}
