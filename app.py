@@ -69,9 +69,17 @@ def index():
         
     cursor.execute("SELECT id, name, correspondingTeamId FROM courses")
     courses = cursor.fetchall()
+    
+    cursor.execute("SELECT username, teams.id FROM users INNER JOIN teams on users.id=manager_id WHERE role=='manager'")
+    managers = cursor.fetchall()
 
-    return render_template('index.html', username=session["username"], role=session.get("role"),
-                           team_name=session.get("team_name"), courses=courses)
+    cursor.execute("SELECT id, name, correspondingCourseId FROM courses_chapter")
+    courses_chapter = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM courses_subsection")
+    courses_subsection = cursor.fetchall()
+
+    return render_template('index.html', username=session["username"], role=session.get("role"), team_name=session.get("team_name"), courses=courses, courses_subsection=courses_subsection,courses_chapter=courses_chapter, managers=managers)
 
 @app.route('/manageCourses')
 def manage_courses():
@@ -153,17 +161,8 @@ def manege_managers():
 
         return render_template('manageManagers.html', managers=managers, role=session.get("role"))
 
-
-
-
-
-
-
     cursor.execute("SELECT users.username, teams.name FROM USERS, TEAMS WHERE users.role='manager' and users.id = teams.manager_id")
-
-    
     managers = cursor.fetchall()
-
 
     return render_template('manageManagers.html', managers=managers, role=session.get("role"))
 
@@ -180,6 +179,24 @@ def deleteTeam():
     cursor.execute(sql, {"team_id": team_id})
     connection.commit()
     return redirect("/manageUsers")
+
+@app.route('/courseList', methods=['GET', 'POST'])
+def courseList():
+    cursor.execute("SELECT id, name, correspondingTeamId FROM courses")
+    courses = cursor.fetchall()
+
+    cursor.execute("SELECT username, teams.id FROM users INNER JOIN teams on users.id=manager_id WHERE role=='manager'")
+    managers = cursor.fetchall()
+
+    cursor.execute("SELECT id, name, correspondingCourseId FROM courses_chapter")
+    courses_chapter = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM courses_subsection")
+    courses_subsection = cursor.fetchall()
+    
+    return render_template('courseList.html', username=session["username"], role=session.get("role"), team_name=session.get("team_name"), courses=courses, courses_subsection=courses_subsection,courses_chapter=courses_chapter, managers=managers)
+    
+
 
 @app.route('/deleteUser/<string:user_id>', methods=['GET'])
 def deleteUser(user_id):
