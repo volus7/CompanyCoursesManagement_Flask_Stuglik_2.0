@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="/static/style/style.css">
     <link rel="stylesheet" href="/static/style/nav.css">
-    <link rel="stylesheet" href="/static/style/coursesMain.css">
-    <link rel="stylesheet" href="/static/style/userMain.css">
-    <link rel="icon" type="image/x-icon" href="/static/icon/smallNoBg.ico">
-
+    <link rel="stylesheet" href="/static/style/manageCourses.css">
+    <link rel="icon" type="image/x-icon" href="/static/icon/small.ico">
     <title>
         {% if role=='admin' %}
         Kapsel - Admin
@@ -20,24 +18,49 @@
         Kapsel - Pracownik
         {% endif %}
     </title>
-
+    <style>
+        body{
+            margin-top: 70px;
+        }
+    </style>
 </head>
 
-<body class="CacheDetailsPage" >
+<body class="CacheDetailsPage">
     {% include 'navbar.html' %}
-    <div id="content" class="content">
-        {% if role == 'admin' or role == 'manager' %}
-            {% include 'contents/adminOrManagerMain.html' %}
-            <script src="/static/javascript/lightToggleSwitch.js" defer></script>
 
-        {%else%}
-        {% include 'contents/userMain.html' %}
+    <div class="courseContent">
+        {% for i in courses %}
+            <div class="courseContainer">
+                
+            {% for j in managers %}
+            {% if i[2] == j[1] %}
+                <div class="courseNav">
+                    <div>
+                        <p>COURSE NAME: {{ i[1] }}</p>
+                        <p>Manager NAME: {{ j[0] }}</p>
+                    </div>
+                </div>
+            {% endif %}
+            {% endfor %}
 
-        {% endif %}
-
-
+            <div class="courseContent2">
+                {% for n in courses_chapter %}
+                {% if i[0] == n[2] %}
+                    <div>
+                    <h1>{{n[1]}}</h1>
+                    {% for m in courses_subsection %}
+                        {% if m[3] == n[0] %}
+                            <h2>•{{m[1]}}</h2><p>{{m[2]}}</p>
+                        {% endif %}
+                    {% endfor %}
+                        </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
     </div>
     <script src="/static/javascript/logoutTimer.js"></script>
 </body>
-
 </html>
+
