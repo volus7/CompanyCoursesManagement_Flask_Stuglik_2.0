@@ -50,7 +50,7 @@
                     </li>
                     <li>
                         <h4>Tel:</h4>
-                        <p>+48 730 370 820</p>
+                        <p class="random-phone-list"></p>
                     </li>
 
                 </div>
@@ -167,6 +167,37 @@
         document.getElementById('file_input').addEventListener('change', function(event) {
             var file = event.target.files[0];
             displayImage(file);
+        });
+
+
+
+        function getRandomPhoneNumber() {
+            var phoneNumber = "+";
+            phoneNumber += 48;
+            phoneNumber += " ";
+            phoneNumber += Math.floor(Math.random() * 900) + 100;
+            phoneNumber += " ";
+            phoneNumber += Math.floor(Math.random() * 900) + 100;
+            phoneNumber += " ";
+            phoneNumber += Math.floor(Math.random() * 900) + 100;
+            phoneNumber += " ";
+            return phoneNumber;
+        }
+
+        function generatePhoneNumbers(container, count) {
+            for (let i = 0; i < count; i++) {
+                const phoneNumber = getRandomPhoneNumber();
+                const listItem = document.createElement("div");
+                listItem.textContent = phoneNumber;
+                container.appendChild(listItem);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const containers = document.querySelectorAll(".random-phone-list");
+            containers.forEach(container => {
+                generatePhoneNumbers(container, 1);
+            });
         });
     </script>
 
