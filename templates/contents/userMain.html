@@ -11,32 +11,23 @@
     <div class="courseContainer">
             {% for j in managers %}
             {% if i[2] == j[1] %}
-            <div class="courseNav">
-                <div>
-                    <p class="courseName">COURSE NAME: {{ i[1] }}</p>
-                    <!-- <p>Manager NAME: {{ j[0] }}</p> -->
-                </div>
-
-
-            </div>
-        {% endif %}
+                <p class="courseName">COURSE NAME: {{ i[1] }}</p>
+            {% endif %}
         {% endfor %}
 
-        <div class="courseContent2">
-
+        <div class="courseContent">
             {% for n in courses_chapter %}
-            {% if i[0] == n[2] %}
-             <div>
-                <h2>{{n[1]}}</h2>
-                {% for m in courses_subsection %}
-                    {% if m[3] == n[0] %}
-                        <h3>•{{m[1]}}</h3><p>{{m[2]}}</p>
+                <div class="course">
+                    {% if i[0] == n[2] %}
+                        <h2 class="m20">{{n[1]}}</h2>
+                        {% for m in courses_subsection %}
+                            {% if m[3] == n[0] %}
+                                <h3>•{{m[1]}}</h3><p>{{m[2]}}</p>
+                            {% endif %}
+                        {% endfor %}
                     {% endif %}
-                {% endfor %}
-                 </div>
-            {% endif %}
+                </div>
             {% endfor %}
-
         </div>
 
     </div>
