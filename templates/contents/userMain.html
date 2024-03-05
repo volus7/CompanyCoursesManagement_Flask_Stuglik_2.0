@@ -1,27 +1,22 @@
 <div id="container">
-    <div><p>HTML</p></div>
+    <!-- <div><p>HTML</p></div>
     <div><p>JS</p></div>
     <div><p>PHP</p></div>
     <div><p>PYTHON</p></div>
     <div><p>jQuery</p></div>
     <div><p>Bootstrap</p></div>
     <div><p>SQL</p></div>
-    <div><p>----------</p></div>
+    <div><p>----------</p></div> -->
     {% for i in courses %}
     <div class="courseContainer">
             {% for j in managers %}
             {% if i[2] == j[1] %}
             <div class="courseNav">
                 <div>
-                    <p>COURSE NAME: {{ i[1] }}</p>
-                    <p>Manager NAME: {{ j[0] }}</p>
+                    <p class="courseName">COURSE NAME: {{ i[1] }}</p>
+                    <!-- <p>Manager NAME: {{ j[0] }}</p> -->
                 </div>
 
-                <div>
-                    <a href="" id="changeTeamLeader"><button class="button-17">CHANGE LEADER</button></a>
-                    <a  id="changeContent"><button class="button-17" onclick="toggleEdit()">EDIT COURSE</button></a>
-
-                </div>
 
             </div>
         {% endif %}
@@ -32,10 +27,10 @@
             {% for n in courses_chapter %}
             {% if i[0] == n[2] %}
              <div>
-                <h1>{{n[1]}}</h1>
+                <h2>{{n[1]}}</h2>
                 {% for m in courses_subsection %}
                     {% if m[3] == n[0] %}
-                        <h2>•{{m[1]}}</h2><p>{{m[2]}}</p>
+                        <h3>•{{m[1]}}</h3><p>{{m[2]}}</p>
                     {% endif %}
                 {% endfor %}
                  </div>
@@ -47,5 +42,5 @@
     </div>
 
     {% endfor %}
-    <div><p>----------</p></div>
+    <!-- <div><p>----------</p></div> -->
 </div>

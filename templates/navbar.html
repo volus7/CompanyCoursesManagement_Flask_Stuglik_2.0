@@ -14,18 +14,19 @@
                 <input type="text" id="mySearch" onkeyup="listFilter()" placeholder="Search..." title="Type in a category">
                 <script>
                     function listFilter() {
-                      let input, filter, container, div, p, i;
+                      let input, filter, container, courseContainer, courseName, p, i;
                       input = document.getElementById("mySearch");
                       filter = input.value.toUpperCase();
                       container = document.getElementById("container");
-                      div = container.getElementsByTagName("div");
-                      console.log(container, div);
-                      for (i = 0; i < div.length; i++) {
-                        p = div[i].getElementsByTagName("p")[0];
-                        if (p.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                          div[i].style.display = "";
+                      courseContainer = container.getElementsByClassName("courseContainer");
+
+                      console.log(container, courseContainer);
+                      for (i = 0; i < courseContainer.length; i++) {
+                        courseName = courseContainer[i].getElementsByClassName("courseName")[0];
+                        if (courseName.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                          courseContainer[i].style.display = "";
                         } else {
-                          div[i].style.display = "none";
+                          courseContainer[i].style.display = "none";
                         }
                       }
                     }
